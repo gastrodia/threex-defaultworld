@@ -71,7 +71,7 @@ define(["three","threex-controls"],function(THREE){
             if(world.update){
                 world.update();
             }
-            if(world.debug){
+            if(world.debugUpdate){
                 world.debugUpdate();
             }
             world.renderer.render(world, world.camera);
