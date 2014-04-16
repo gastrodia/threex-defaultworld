@@ -8,6 +8,7 @@ define(["three","threex-controls"],function(THREE){
         this.update = null;
         this.controls = null;
         this.enableRotateCube = false;
+        this.debug = true;
         THREE.Scene.apply(this);
     };
     THREE.DefaultWorld.prototype = Object.create(THREE.Scene.prototype);
@@ -46,6 +47,22 @@ define(["three","threex-controls"],function(THREE){
             }
         }
 
+
+
+        if(world.debug){
+            require(["threejs-stats"],function(){
+                var stats = new Stats();
+                stats.setMode(0);
+                stats.domElement.style.position = 'absolute';
+                stats.domElement.style.left = "0px";
+                stats.domElement.style.top = "0px";
+                document.body.appendChild(stats.domElement);
+                world.debugUpdate = function(){
+                    stats.update();
+                }
+            });
+        }
+
         var clock = new THREE.Clock();
         var render = function () {
             requestAnimationFrame(render);
@@ -53,6 +70,9 @@ define(["three","threex-controls"],function(THREE){
             world.controls.update(delta);
             if(world.update){
                 world.update();
+            }
+            if(world.debug){
+                world.debugUpdate();
             }
             world.renderer.render(world, world.camera);
         };

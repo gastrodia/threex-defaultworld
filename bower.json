@@ -1,6 +1,6 @@
 {
   "name": "threex-defaultworld",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/gastrodia/threex-defaultworld",
   "authors": [
     "ELatA <elata@foxmail.com>"
@@ -21,6 +21,7 @@
   "dependencies": {
     "three.js": "*",
     "threex-controls": "*",
-    "requirejs": "~2.1.11"
+    "requirejs": "~2.1.11",
+    "threejs-stats": "*"
   }
 }
