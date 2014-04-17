@@ -8,6 +8,7 @@ define(["three","threex-controls"],function(THREE){
         this.update = null;
         this.controls = null;
         this.enableRotateCube = false;
+        this.autoResize = true;
         this.debug = true;
         THREE.Scene.apply(this);
     };
@@ -63,6 +64,16 @@ define(["three","threex-controls"],function(THREE){
             });
         }
 
+        if(world.autoResize){
+            window.addEventListener( 'resize', onWindowResize, false );
+        }
+
+        function onWindowResize() {
+            world.camera.aspect = window.innerWidth / window.innerHeight;
+            world.camera.updateProjectionMatrix();
+            world.renderer.setSize( window.innerWidth, window.innerHeight );
+        }
+
         var clock = new THREE.Clock();
         var render = function () {
             requestAnimationFrame(render);
@@ -91,6 +102,8 @@ define(["three","threex-controls"],function(THREE){
         this.rotation.x += 0.1;
         this.rotation.y += 0.1;
     }
+
+
 
     return THREE.DefaultWorld;
 });
