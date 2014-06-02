@@ -1,6 +1,6 @@
 require.config({
   shim: {
-    three: {
+    threex: {
       exports: "THREE"
     },
     "threex-controls": {
@@ -10,7 +10,7 @@ require.config({
     }
   },
   paths: {
-    three: "bower_components/three.js/three.min",
+    threex: "bower_components/three.js/three.min",
     requirejs: "bower_components/requirejs/require",
     "threex-controls": "bower_components/threex-controls/controls/OrbitControls",
     "threejs-stats": "bower_components/threejs-stats/Stats"

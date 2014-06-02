@@ -1,7 +1,7 @@
 /**
  * Created by ELatA on 2014/4/14.
  */
-define(["three","threex-controls"],function(THREE){
+define(["threex","threex-controls"],function(THREE){
     THREE.DefaultWorld = function(){
         this.camera = null;
         this.renderer = null;
